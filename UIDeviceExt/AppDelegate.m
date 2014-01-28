@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DemoGridView.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // create minimalistic app with one full screen view with graph paper
+    UIViewController *viewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+    [viewController.view addSubview:[[DemoGridView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
+    self.window.rootViewController = viewController;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

@@ -19,6 +19,10 @@
 		105AAA51189857160050BEE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105AAA39189857160050BEE1 /* UIKit.framework */; };
 		105AAA59189857160050BEE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 105AAA57189857160050BEE1 /* InfoPlist.strings */; };
 		105AAA5B189857160050BEE1 /* UIDeviceExtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 105AAA5A189857160050BEE1 /* UIDeviceExtTests.m */; };
+		105AAA661898576F0050BEE1 /* DemoGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 105AAA651898576F0050BEE1 /* DemoGridView.m */; };
+		105AAA6A189858380050BEE1 /* UIDeviceExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 105AAA69189858380050BEE1 /* UIDeviceExt.m */; };
+		105AAA6D1898649F0050BEE1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 105AAA6B1898649F0050BEE1 /* LICENSE */; };
+		105AAA6E1898649F0050BEE1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 105AAA6C1898649F0050BEE1 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 		105AAA56189857160050BEE1 /* UIDeviceExtTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIDeviceExtTests-Info.plist"; sourceTree = "<group>"; };
 		105AAA58189857160050BEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		105AAA5A189857160050BEE1 /* UIDeviceExtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIDeviceExtTests.m; sourceTree = "<group>"; };
+		105AAA641898576F0050BEE1 /* DemoGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoGridView.h; sourceTree = "<group>"; };
+		105AAA651898576F0050BEE1 /* DemoGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoGridView.m; sourceTree = "<group>"; };
+		105AAA68189858380050BEE1 /* UIDeviceExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceExt.h; sourceTree = "<group>"; };
+		105AAA69189858380050BEE1 /* UIDeviceExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceExt.m; sourceTree = "<group>"; };
+		105AAA6B1898649F0050BEE1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		105AAA6C1898649F0050BEE1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,8 @@
 		105AAA29189857160050BEE1 = {
 			isa = PBXGroup;
 			children = (
+				105AAA6B1898649F0050BEE1 /* LICENSE */,
+				105AAA6C1898649F0050BEE1 /* README.md */,
 				105AAA3B189857160050BEE1 /* UIDeviceExt */,
 				105AAA54189857160050BEE1 /* UIDeviceExtTests */,
 				105AAA34189857160050BEE1 /* Frameworks */,
@@ -107,10 +119,13 @@
 		105AAA3B189857160050BEE1 /* UIDeviceExt */ = {
 			isa = PBXGroup;
 			children = (
+				105AAA67189858380050BEE1 /* UIDeviceExt */,
 				105AAA44189857160050BEE1 /* AppDelegate.h */,
 				105AAA45189857160050BEE1 /* AppDelegate.m */,
 				105AAA47189857160050BEE1 /* Images.xcassets */,
 				105AAA3C189857160050BEE1 /* Supporting Files */,
+				105AAA641898576F0050BEE1 /* DemoGridView.h */,
+				105AAA651898576F0050BEE1 /* DemoGridView.m */,
 			);
 			path = UIDeviceExt;
 			sourceTree = "<group>";
@@ -142,6 +157,15 @@
 				105AAA57189857160050BEE1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		105AAA67189858380050BEE1 /* UIDeviceExt */ = {
+			isa = PBXGroup;
+			children = (
+				105AAA68189858380050BEE1 /* UIDeviceExt.h */,
+				105AAA69189858380050BEE1 /* UIDeviceExt.m */,
+			);
+			path = UIDeviceExt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +243,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105AAA6D1898649F0050BEE1 /* LICENSE in Resources */,
 				105AAA40189857160050BEE1 /* InfoPlist.strings in Resources */,
+				105AAA6E1898649F0050BEE1 /* README.md in Resources */,
 				105AAA48189857160050BEE1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +267,8 @@
 			files = (
 				105AAA46189857160050BEE1 /* AppDelegate.m in Sources */,
 				105AAA42189857160050BEE1 /* main.m in Sources */,
+				105AAA661898576F0050BEE1 /* DemoGridView.m in Sources */,
+				105AAA6A189858380050BEE1 /* UIDeviceExt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
