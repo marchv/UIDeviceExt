@@ -48,7 +48,7 @@ static float _pointsPerInch;
                                                   @"iPhone5,1", @"iPhone5,2",                      // iPhone 5
                                                   @"iPhone5,3", @"iPhone5,4",                      // iPhone 5C
                                                   @"iPhone6,1", @"iPhone6,2",                      // iPhone 5S
-                                                  @"iPad2,5", @"iPad2,5", @"iPad2,7",              // iPad Mini
+                                                  @"iPad2,5", @"iPad2,6", @"iPad2,7",              // iPad Mini
                                                   @"iPad4,4", @"iPad4,5",                          // iPad Mini Retina
                                                   @"i386", @"x86_64"],                             // iOS simulator (assuming iPad Mini simulator)
                                 @"pointsPerCentimeter":  @64.0f,
