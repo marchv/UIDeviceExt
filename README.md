@@ -1,13 +1,18 @@
 # UIDeviceExt
-`UIDeviceExt` provide class methods to get information about pixels-per-centimeter and points-per-centimeter of an iPod, iPhone or iPad. This information can be used to render graphics that has dimensions of known size in centimeters, etc.
+`UIDeviceExt` provide class methods to get information about pixels-per-centimeter/inch and points-per-centimeter/inch of an iPod, iPhone or iPad. This information can be used to render graphics that has dimensions of known size in centimeters/inches, etc.
 
 A demo shows how this can be used to simulate 1 mm graph-paper on any iPod, iPhone or iPad (best on Retina displays).
 
 The interface is simply:
 
     @interface UIDeviceExt : NSObject
-    + (float)pixelsPerCentimeter;
+
     + (float)pointsPerCentimeter;
+    + (float)pixelsPerCentimeter;
+
+    + (float)pointsPerInch;
+    + (float)pixelsPerInch;
+
     @end
 
 For example this can be used like this:
