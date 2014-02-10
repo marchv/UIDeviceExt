@@ -19,70 +19,57 @@
 #import "UIDeviceExt.h"
 #include <sys/utsname.h>
 
-static float _pixelsPerCentimeter;
 static float _pointsPerCentimeter;
+static float _pointsPerInch;
 
 @implementation UIDeviceExt
 
 +(void)initialize {
-#if TARGET_CPU_ARM == 0
-    // simulator
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        _pointsPerCentimeter = 64.0f; // assume simulation of iPhone
-    }
-    else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        _pointsPerCentimeter = 52.0f; // assume simulation of iPad
-    }
-    
-    _pixelsPerCentimeter = _pointsPerCentimeter * [[UIScreen mainScreen] scale]; // adjust for Retina
-#else
     struct utsname sysinfo;
     
     if (uname(&sysinfo) == 0) {
         NSString *identifier = [NSString stringWithUTF8String:sysinfo.machine];
         
-        // group devices with same number of pixels-per-centimeter
+        // group devices with same points-density
         NSArray *iDevices = @[@{@"identifiers": @[@"iPad1,1",                                      // iPad
-                                                  @"iPad2,1", @"iPad2,2", @"iPad2,3", @"iPad2,4"], // iPad 2
-                                @"pixelsPerCentimeter": @52},
-                              
-                              @{@"identifiers": @[@"iPad3,1", @"iPad3,2", @"iPad3,3",              // iPad 3
+                                                  @"iPad2,1", @"iPad2,2", @"iPad2,3", @"iPad2,4",  // iPad 2
+                                                  @"iPad3,1", @"iPad3,2", @"iPad3,3",              // iPad 3
                                                   @"iPad3,4", @"iPad3,5", @"iPad3,6",              // iPad 4
                                                   @"iPad4,1", @"iPad4,2"],                         // iPad Air
-                                @"pixelsPerCentimeter": @104},
-                              
-                              @{@"identifiers": @[@"iPhone1,1",                                    // iPhone 2G
-                                                  @"iPhone1,2",                                    // iPhone 3G
-                                                  @"iPhone2,1",                                    // iPhone 3GS
-                                                  @"iPad2,5", @"iPad2,5", @"iPad2,7"],             // iPad Mini
-                                @"pixelsPerCentimeter": @64},
+                                @"pointsPerCentimeter":  @52.0f,
+                                @"pointsPerInch":       @132.0f},
                               
                               @{@"identifiers": @[@"iPod5,1",                                      // iPod Touch 5th generation
+                                                  @"iPhone1,1",                                    // iPhone 2G
+                                                  @"iPhone1,2",                                    // iPhone 3G
+                                                  @"iPhone2,1",                                    // iPhone 3GS
                                                   @"iPhone3,1", @"iPhone3,2", @"iPhone3,3",        // iPhone 4
                                                   @"iPhone4,1",                                    // iPhone 4S
                                                   @"iPhone5,1", @"iPhone5,2",                      // iPhone 5
                                                   @"iPhone5,3", @"iPhone5,4",                      // iPhone 5C
                                                   @"iPhone6,1", @"iPhone6,2",                      // iPhone 5S
-                                                  @"iPad4,4", @"iPad4,5"],                         // iPad Mini Retina
-                                @"pixelsPerCentimeter": @128}];
+                                                  @"iPad2,5", @"iPad2,5", @"iPad2,7",              // iPad Mini
+                                                  @"iPad4,4", @"iPad4,5",                          // iPad Mini Retina
+                                                  @"i386", @"x86_64"],                             // iOS simulator (assuming iPad Mini simulator)
+                                @"pointsPerCentimeter":  @64.0f,
+                                @"pointsPerInch":       @163.0f}];
         
         for (id deviceClass in iDevices)
             for (NSString *deviceId in [deviceClass objectForKey:@"identifiers"])
                 if ([identifier isEqualToString:deviceId]) {
-                    _pixelsPerCentimeter = [[deviceClass objectForKey:@"pixelsPerCentimeter"] integerValue];
+                    _pointsPerCentimeter = [[deviceClass objectForKey:@"pointsPerCentimeter"] floatValue];
+                    _pointsPerInch       = [[deviceClass objectForKey:@"pointsPerInch"] floatValue];
                     break;
                 }
     }
     
-    // map from PIXELS per centimeter into POINTS per centimeter
-    _pointsPerCentimeter = _pixelsPerCentimeter / [[UIScreen mainScreen] scale];
-#endif
-    
-    NSAssert(_pixelsPerCentimeter > 0.0f, @"Unknown device");
+    NSAssert(_pointsPerCentimeter > 0.0f || _pointsPerInch > 0.0f, @"Unknown device: %s", sysinfo.machine);
 }
 
-+ (float)pixelsPerCentimeter { return _pixelsPerCentimeter; }
-
 + (float)pointsPerCentimeter { return _pointsPerCentimeter; }
-
++ (float)pixelsPerCentimeter { return _pointsPerCentimeter * [[UIScreen mainScreen] scale]; } // map from POINTS to PIXELS
+                              
++ (float)pointsPerInch { return _pointsPerInch; }
++ (float)pixelsPerInch { return _pointsPerInch * [[UIScreen mainScreen] scale]; } // map from POINTS to PIXELS
+                              
 @end

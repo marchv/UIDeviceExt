@@ -10,7 +10,10 @@
 
 @interface UIDeviceExt : NSObject
 
-+ (float)pixelsPerCentimeter;
 + (float)pointsPerCentimeter;
++ (float)pixelsPerCentimeter;
+
++ (float)pointsPerInch;
++ (float)pixelsPerInch;
 
 @end

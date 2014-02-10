@@ -471,6 +471,7 @@
 				105AAA60189857160050BEE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		105AAA61189857160050BEE1 /* Build configuration list for PBXNativeTarget "UIDeviceExtTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +480,7 @@
 				105AAA63189857160050BEE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -69,12 +69,16 @@
                                  NSParagraphStyleAttributeName: paragraphStyle};
     
     NSString *strMarchv = @"UIDeviceExt\n\u00A9 2014 marchv";
-    NSString *strPixels = [NSString stringWithFormat:@"%.0f pixels per centimeter", [UIDeviceExt pixelsPerCentimeter]];
-    NSString *strPoints = [NSString stringWithFormat:@"%.0f points per centimeter", [UIDeviceExt pointsPerCentimeter]];
+    NSString *strPointsCentimeter = [NSString stringWithFormat:@"%.0f points per centimeter", [UIDeviceExt pointsPerCentimeter]];
+    NSString *strPixelsCentimeter = [NSString stringWithFormat:@"%.0f pixels per centimeter", [UIDeviceExt pixelsPerCentimeter]];
+    NSString *strPointsInch       = [NSString stringWithFormat:@"%.0f points per inch", [UIDeviceExt pointsPerInch]];
+    NSString *strPixelsInch       = [NSString stringWithFormat:@"%.0f pixels per inch", [UIDeviceExt pixelsPerInch]];
     
     [strMarchv drawInRect:CGRectMake(0.0f,  5.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
-    [strPixels drawInRect:CGRectMake(0.0f, 15.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
-    [strPoints drawInRect:CGRectMake(0.0f, 20.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
+    [strPixelsCentimeter drawInRect:CGRectMake(0.0f, 15.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
+    [strPointsCentimeter drawInRect:CGRectMake(0.0f, 20.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
+    [strPixelsInch drawInRect:CGRectMake(0.0f, 25.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
+    [strPointsInch drawInRect:CGRectMake(0.0f, 30.0f * pointsPerMillimeter, self.bounds.size.width, self.bounds.size.height) withAttributes:dictionary];
 }
 
 @end
