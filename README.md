@@ -3,6 +3,8 @@
 
 A demo shows how this can be used to simulate 1 mm graph-paper on any iPod, iPhone or iPad (best on Retina displays).
 
+![screenshot](https://github.com/marchv/UIDeviceExt/blob/master/screenshot.png?raw=true)
+
 The interface is simply:
 
     @interface UIDeviceExt : NSObject
