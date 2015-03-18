@@ -15,6 +15,7 @@
 //
 //  WARNING: This code must be updated whenever new iDevices are released
 //
+// Updated 17 March 2015 with new devices by Dominic Forrest
 
 #import "UIDeviceExt.h"
 #include <sys/utsname.h>
@@ -35,7 +36,8 @@ static float _pointsPerInch;
                                                   @"iPad2,1", @"iPad2,2", @"iPad2,3", @"iPad2,4",  // iPad 2
                                                   @"iPad3,1", @"iPad3,2", @"iPad3,3",              // iPad 3
                                                   @"iPad3,4", @"iPad3,5", @"iPad3,6",              // iPad 4
-                                                  @"iPad4,1", @"iPad4,2"],                         // iPad Air
+                                                  @"iPad4,1", @"iPad4,2", @"iPad4,3",              // iPad Air
+                                                  @"iPad5,3", @"iPad5,4"],                         // iPad Air 2
                                 @"pointsPerCentimeter":  @52.0f,
                                 @"pointsPerInch":       @132.0f},
                               
@@ -49,10 +51,21 @@ static float _pointsPerInch;
                                                   @"iPhone5,3", @"iPhone5,4",                      // iPhone 5C
                                                   @"iPhone6,1", @"iPhone6,2",                      // iPhone 5S
                                                   @"iPad2,5", @"iPad2,6", @"iPad2,7",              // iPad Mini
-                                                  @"iPad4,4", @"iPad4,5",                          // iPad Mini Retina
                                                   @"i386", @"x86_64"],                             // iOS simulator (assuming iPad Mini simulator)
                                 @"pointsPerCentimeter":  @64.0f,
-                                @"pointsPerInch":       @163.0f}];
+                                @"pointsPerInch":       @163.0f},
+                              
+
+                              @{@"identifiers": @[@"iPhone7,1"],                                   // iPhone 6 Plus
+                                @"pointsPerCentimeter":  @158.0f,
+                                @"pointsPerInch":       @401.0f},
+                              
+                              @{@"identifiers": @[@"iPhone7,2",                                    // iPhone 6
+                                                  @"iPad4,4", @"iPad4,5",  @"iPad4,6",             // iPad Mini Retina (2)
+                                                  @"iPad4,7", @"iPad4,8",  @"iPad4,9"],            // iPad Mini 3
+                                @"pointsPerCentimeter":  @128.0f,
+                                @"pointsPerInch":       @326.0f}
+                              ];
         
         for (id deviceClass in iDevices)
             for (NSString *deviceId in [deviceClass objectForKey:@"identifiers"])
